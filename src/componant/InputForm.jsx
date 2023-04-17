@@ -36,6 +36,26 @@ const InputForm = () => {
       <input placeholder='Quantity' ref={quantRef}/>
      <input type='submit' value={'Add Product'}/>
    </form>
+   <div>
+    {data?.map(el=>(
+        <>
+        <div style={{marginTop:'100px',padding:'20px',fontSize:"21px",display:'flex'}}>
+            <h4 style={{width:'20%'}}>{el.medicin}</h4>{" "}
+            <h5 style={{width:'30%'}}>{el.desc}</h5>{" "}
+            <h3 style={{width:'30%'}}>{el.price}</h3>{" "}
+            <h4 style={{width:'30%'}}>{el.quantity}</h4>{" "}
+            <div>
+            <button onClick={()=>{
+                if(el.quantity>=1){
+                    data.find(el=>el.price-1);
+                }
+            }}>-</button>{" "}<button>+</button>
+            </div>
+        </div>
+        
+        </>
+    ))}
+   </div>
     </div>
   )
 }
